@@ -39,7 +39,7 @@ class StudentsCollectionViewController: UICollectionViewController {
 			}
 		}
 		
-		images = imageURLs.flatMap { (url) -> StudentImage? in
+		images = imageURLs.compactMap { (url) -> StudentImage? in
 			guard let imageData = try? Data(contentsOf: url),
 			let image = UIImage(data: imageData) else { return nil }
 			let name = url.deletingPathExtension().lastPathComponent 
